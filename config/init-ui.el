@@ -1,7 +1,7 @@
 ;; 样式初始化
 
 (tool-bar-mode -1)
-(menu-bar-mode -1)
+;;(menu-bar-mode -1)
 
 ;; 关闭滑轮
 (scroll-bar-mode -1)
@@ -17,9 +17,15 @@
 (setq inhibit-splash-screen 1)
 
 ;; 关闭缩进
-(electric-indent-mode -1)
+;;(electric-indent-mode -1)
+
+;; 高亮当前行
+(global-hl-line-mode 1)
 
 ;; 更改显示字体大小 16pt
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 150)
+
+;; 主题
+(load-theme 'monokai t)
 
 (provide 'init-ui)

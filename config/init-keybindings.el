@@ -4,6 +4,9 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
+;; recentf
+(global-set-key (kbd "C-x C-r") 'recentf-open-files)
+
 ;; company 
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "C-n") 'company-select-next)

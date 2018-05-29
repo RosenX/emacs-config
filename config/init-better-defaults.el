@@ -51,4 +51,8 @@
 (require 'dired-x)
 (setq dired-dwim-target 1) ;; 分屏时将在另外窗口打开dired
 
+;; org
+(setq org-agenda-files '("~/Documents/Agenda"))
+(global-set-key (kbd "C-c a") 'org-agenda)
+
 (provide 'init-better-defaults)
