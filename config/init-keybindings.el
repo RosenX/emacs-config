@@ -18,7 +18,9 @@
   (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
 ;; hippie complete
-
 (global-set-key (kbd "s-/") 'hippie-expand)
+
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+(global-set-key (kbd "M-s o") 'occur-dwim)
 
 (provide 'init-keybindings)

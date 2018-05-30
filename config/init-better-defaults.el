@@ -5,7 +5,7 @@
 
 ;; 选中输入替换
 (delete-selection-mode 1)
-
+ 
 ;; 开启全屏
 (setq initial-frame-alist '((fullscreen . maximized)))
 
@@ -61,5 +61,35 @@
 
 ;; disable audio bell
 (setq ring-bell-function 'ignore)
+
+
+;; remove dos eol
+(defun remove-dos-eol()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
+
+;; occur
+(defun occur-dwim ()
+  "Call `occur' with a sane default."
+  (interactive)
+  (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+  (call-interactively 'occur))
+(global-set-key  (kbd "M-s o") 'occur-dwim)
+(global-set-key (kbd "M-s e") 'iedit-mode)
+
+;; major mode
+(setq auto-mode-alist
+      (append
+       '(("\\.html\\'" . web-mode))
+       auto-mode-alist))
 
 (provide 'init-better-defaults)

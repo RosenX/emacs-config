@@ -32,9 +32,12 @@
 		exec-path-from-shell
 		popwin
 		reveal-in-osx-finder
-		;; --- Themes ---
+		expand-region
+		iedit
+		;; Themes
 		monokai-theme
-		;; solarized-theme
+		;; major mode
+		web-mode
 		) "Default packages")
 
 (setq package-selected-packages my-packages)
@@ -64,10 +67,15 @@
 ;; smartparens
 (require 'smartparens-config)
 (smartparens-global-mode t)
+(sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
 
 ;; let emacs could find the excuable
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
+;; expand region
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; popwin
 (require 'popwin)
