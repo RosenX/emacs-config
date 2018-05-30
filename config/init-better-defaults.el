@@ -18,6 +18,9 @@
 	     (ignore-errors (backward-up-list))
 	     (funcall fn)))))
 
+;;禁止自动保存
+(setq auto-save-default nil)
+
 ;; 自动加载修改
 (global-auto-revert-mode 1)
 
@@ -44,15 +47,19 @@
 					try-complete-lisp-symbol))
 
 ;; dired
+
+;; different directory dired in the same buffer
 (put 'dired-find-alternate-file 'disable nil)
 (with-eval-after-load 'dired 
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)) ;; 延时加载
+;; recursive copy and delete don't ask
+(setq dired-recursive-copies 'always)
+(setq dired-recursive-deletes 'always)
 
-(require 'dired-x)
+(require 'dired-x)  ;; c-x c-j 打开当前目录
 (setq dired-dwim-target 1) ;; 分屏时将在另外窗口打开dired
 
-;; org
-(setq org-agenda-files '("~/Documents/Agenda"))
-(global-set-key (kbd "C-c a") 'org-agenda)
+;; disable audio bell
+(setq ring-bell-function 'ignore)
 
 (provide 'init-better-defaults)

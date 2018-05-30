@@ -30,6 +30,8 @@
 		swiper
 		counsel
 		exec-path-from-shell
+		popwin
+		reveal-in-osx-finder
 		;; --- Themes ---
 		monokai-theme
 		;; solarized-theme
@@ -66,5 +68,9 @@
 ;; let emacs could find the excuable
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
+
+;; popwin
+(require 'popwin)
+(popwin-mode 1)
 
 (provide 'init-packages)
