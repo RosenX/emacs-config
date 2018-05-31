@@ -50,8 +50,9 @@
 
 ;; different directory dired in the same buffer
 (put 'dired-find-alternate-file 'disable nil)
-(with-eval-after-load 'dired 
+(with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)) ;; 延时加载
+
 ;; recursive copy and delete don't ask
 (setq dired-recursive-copies 'always)
 (setq dired-recursive-deletes 'always)
@@ -83,13 +84,14 @@
               (regexp-quote sym))))
         regexp-history)
   (call-interactively 'occur))
-(global-set-key  (kbd "M-s o") 'occur-dwim)
-(global-set-key (kbd "M-s e") 'iedit-mode)
+
 
 ;; major mode
 (setq auto-mode-alist
       (append
        '(("\\.html\\'" . web-mode))
        auto-mode-alist))
+
+(set-language-environment "UTF-8")
 
 (provide 'init-better-defaults)

@@ -34,6 +34,13 @@
 		reveal-in-osx-finder
 		expand-region
 		iedit
+		s
+		helm-ag
+		flycheck
+		window-numbering
+		;; program
+		yasnippet
+		auto-yasnippet
 		;; Themes
 		monokai-theme
 		;; major mode
@@ -58,16 +65,13 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
-(global-set-key "\C-s" 'swiper)
-(global-set-key (kbd "C-c C-r") 'ivy-resume)
-(global-set-key (kbd "<f6>") 'ivy-resume)
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+
 
 ;; smartparens
 (require 'smartparens-config)
 (smartparens-global-mode t)
 (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
+(sp-local-pair 'lisp-interaction-mode "'" nil :actions nil)
 
 ;; let emacs could find the excuable
 (when (memq window-system '(mac ns))
@@ -75,10 +79,27 @@
 
 ;; expand region
 (require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+
 
 ;; popwin
 (require 'popwin)
 (popwin-mode 1)
+
+;; s
+(require 's)
+
+;; flycheck
+(global-flycheck-mode t)
+
+;; yasnippet
+(require 'yasnippet)
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; window-numbering
+(window-numbering-mode 1)
+
+
+
 
 (provide 'init-packages)

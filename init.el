@@ -14,14 +14,19 @@
 ;;-------------------------------------------------------------------------
 (require 'init-better-defaults)
 
-;; keybinding management
-;;-------------------------------------------------------------------------
-(require 'init-keybindings)
 
 ;; org management
 (require 'init-org)
 
+;; useful function
+(require 'init-func)
+
+
 (setq custom-file (expand-file-name "config/custom.el" user-emacs-directory))
 (load-file custom-file)
+
+;; keybinding management
+;;-------------------------------------------------------------------------
+(require 'init-keybindings)
 
 (put 'dired-find-alternate-file 'disabled nil)

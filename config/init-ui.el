@@ -25,6 +25,9 @@
 ;; 更改显示字体大小 16pt
 (set-face-attribute 'default nil :height 150)
 
+;; 更改字体
+(set-face-attribute 'default nil :font "Courier")
+
 ;; 主题
 (load-theme 'monokai t)
 

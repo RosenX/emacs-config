@@ -7,7 +7,7 @@
  '(company-minimum-prefix-length 2)
  '(monokai-highlight-line "blue")
  '(popwin:popup-window-position (quote right))
- '(popwin:popup-window-width 90))
+ '(popwin:popup-window-width 80))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
