@@ -38,13 +38,23 @@
 		helm-ag
 		flycheck
 		window-numbering
+		which-key
 		;; program
 		yasnippet
 		auto-yasnippet
+		elpy ;; python env
+		ein ;; emacs ipython notebook
+		company-c-headers
+		company-anaconda
+		evil-nerd-commenter
+		irony ;; C++
+		company-irony;; C++
+		aggressive-indent
 		;; Themes
 		monokai-theme
 		;; major mode
 		web-mode
+		htmlize
 		) "Default packages")
 
 (setq package-selected-packages my-packages)
@@ -99,7 +109,36 @@
 ;; window-numbering
 (window-numbering-mode 1)
 
+;; elpy
+(elpy-enable)
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i --simple-prompt")
+
+;;which-key
+(require 'which-key)
+(which-key-mode)
+(which-key-setup-side-window-right)
+
+;; company
+;; (add-hook 'python-mode-hook
+;; 	  (lambda()
+;; 	    (set (make-local-variable 'company-backends '
+;; 				      ((company-anaconda company-dabbrev-code), company-dabbrev)))))
 
 
+;; irony
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+(require 'company)
+(require 'company-c-headers)
+(add-to-list 'company-backends 'company-irony)
+(add-to-list 'company-backends 'company-c-headers)
+(exec-path-from-shell-copy-env "CPPPATH")
+(add-to-list 'company-c-headers-path-system (getenv "CPPPATH"))
+
+;;aggressive indent
+;;(global-aggressive-indent-mode 1)
 
 (provide 'init-packages)

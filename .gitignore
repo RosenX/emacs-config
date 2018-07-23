@@ -4,3 +4,10 @@ recentf*
 abbrev_defs
 smex-items
 .DS_Store
+bookmarks
+diary
+irony/*
+request/*
+ac-comphist.dat
+*.org
+

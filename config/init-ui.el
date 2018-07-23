@@ -20,7 +20,7 @@
 ;;(electric-indent-mode -1)
 
 ;; 高亮当前行
-(global-hl-line-mode 1)
+;; (global-hl-line-mode 1)
 
 ;; 更改显示字体大小 16pt
 (set-face-attribute 'default nil :height 150)

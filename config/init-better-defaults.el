@@ -31,9 +31,11 @@
 (setq-default abbrev-mode t)
 (define-abbrev-table 'global-abbrev-table '(
 					    ("8rs" "Rosen")
+					    ("8sc" "SCHEDULED")
+					    ("8dd" "DEADLINE")
 ))
 
-;; 缩进
+;; 补全
 (global-company-mode 1)
 (setq hippie-expand-try-function-list '(try-expand-debbrev
 					try-expand-debbrev-all-buffers
@@ -93,5 +95,11 @@
        auto-mode-alist))
 
 (set-language-environment "UTF-8")
+
+(defun my-c++-mode-hook ()
+  (setq c-basic-offset 4)
+  ;; (c-set-offset 'substatement-open 0)
+  )
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
 (provide 'init-better-defaults)
