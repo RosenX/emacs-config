@@ -1,10 +1,10 @@
 ;; 样式初始化
 
 (tool-bar-mode -1)
-;;(menu-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; 关闭滑轮
-(scroll-bar-mode -1)
+;;(scroll-bar-mode -1)
 
 ;; 显示行号
 (global-linum-mode 1)
