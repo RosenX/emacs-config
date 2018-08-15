@@ -4,6 +4,8 @@
 (global-set-key (kbd "C-h C-v") 'find-variable)
 (global-set-key (kbd "C-h C-k") 'find-function-on-key)
 
+(global-set-key (kbd "C-M-m") 'set-mark-command)
+
 ;; recentf
 (global-set-key (kbd "C-x C-r") 'recentf-open-files)
 
