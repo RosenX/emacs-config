@@ -1,4 +1,4 @@
-(package-initialize)
+;;(package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/config/")
 
@@ -16,7 +16,7 @@
 
 
 ;; org management
-(require 'init-org)
+;;(require 'init-org)
 
 ;; useful function
 (require 'init-func)
