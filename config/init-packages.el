@@ -10,7 +10,7 @@
 
 
 ;; cl - Common Lisp Extension
-;; (require 'cl)
+(require 'cl)
 
 ;; recent file
 (require 'recentf)
